@@ -26,12 +26,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: ["1.21.1", "latest-26"]
+        include:
+          - version: "1.21.1"
+            java: 21
+          - version: "latest-26"
+            java: 25
     steps:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 25
+          java-version: ${{ matrix.java }}
       - uses: actions/download-artifact@v4
         with:
           name: SimpleHandcuffs
