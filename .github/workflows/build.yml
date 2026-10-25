@@ -3,6 +3,11 @@ name: Build
 on:
   push:
   workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -19,6 +24,11 @@ jobs:
         with:
           name: SimpleHandcuffs
           path: target/SimpleHandcuffs-*.jar
+      - name: Attach jar to release
+        if: github.event_name == 'release'
+        run: gh release upload "${{ github.event.release.tag_name }}" target/SimpleHandcuffs-*.jar --clobber
+        env:
+          GH_TOKEN: ${{ github.token }}
 
   test:
     needs: build
