@@ -9,7 +9,7 @@ commands:
   cuffs:
     description: Simple Handcuffs commands
     usage: /cuffs give [player] [amount] | /cuffs removeall
-    aliases: [sh, handcuffs]
+    aliases: [cuff, sh, handcuffs]
 
 permissions:
   handcuffs.create:

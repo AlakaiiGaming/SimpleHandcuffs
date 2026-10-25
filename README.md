@@ -11,7 +11,7 @@ Hold the cuffs and right-click a player to arrest them. They follow you and can'
 | `/cuffs give [player] [amount]` | `handcuffs.create` |
 | `/cuffs removeall` | `handcuffs.removeall` |
 
-`/sh` and `/handcuffs` work too. `handcuffs.immune` stops a player from being cuffed.
+`/cuff`, `/sh` and `/handcuffs` work too. `handcuffs.immune` stops a player from being cuffed.
 
 ## Build
 
