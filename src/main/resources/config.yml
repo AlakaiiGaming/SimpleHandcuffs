@@ -14,6 +14,7 @@ chain:
 
 item:
   name: "&6Handcuffs"
+  model: minecraft:blaze_rod   # what the cuffs look like (1.21.4+)
   lore:
     - "&7Right-click a player to arrest them."
 

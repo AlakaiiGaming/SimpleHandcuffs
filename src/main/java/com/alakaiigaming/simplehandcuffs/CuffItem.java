@@ -27,9 +27,11 @@ public final class CuffItem {
     }
 
     public ItemStack create() {
-        ItemStack item = new ItemStack(Material.BLAZE_ROD);
+        // a stick, so getting cuffs doesn't grant "Into Fire"
+        ItemStack item = new ItemStack(Material.STICK);
         ItemMeta meta = item.getItemMeta();
         meta.displayName(Messages.color(plugin.getConfig().getString("item.name", "&6Handcuffs")));
+        setModel(meta, plugin.getConfig().getString("item.model", "minecraft:blaze_rod"));
 
         List<Component> lore = new ArrayList<>();
         for (String line : plugin.getConfig().getStringList("item.lore")) {
@@ -45,8 +47,18 @@ public final class CuffItem {
         return item;
     }
 
+    // item_model only exists on 1.21.4+; older servers just show a stick
+    private static void setModel(ItemMeta meta, String model) {
+        NamespacedKey key = model == null ? null : NamespacedKey.fromString(model);
+        if (key == null) return;
+        try {
+            ItemMeta.class.getMethod("setItemModel", NamespacedKey.class).invoke(meta, key);
+        } catch (ReflectiveOperationException ignored) {
+        }
+    }
+
     public boolean isCuffs(ItemStack item) {
-        if (item == null || item.getType() != Material.BLAZE_ROD || !item.hasItemMeta()) return false;
+        if (item == null || !item.hasItemMeta()) return false;
         return item.getItemMeta().getPersistentDataContainer().has(idKey, PersistentDataType.STRING);
     }
 
