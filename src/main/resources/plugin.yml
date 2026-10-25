@@ -1,0 +1,23 @@
+name: SimpleHandcuffs
+version: '${project.version}'
+main: com.alakaiigaming.simplehandcuffs.SimpleHandcuffs
+api-version: '1.21'
+author: AlakaiiGaming
+description: Handcuffs for arresting players.
+
+commands:
+  cuffs:
+    description: Simple Handcuffs commands
+    usage: /cuffs give [player] [amount] | /cuffs removeall
+    aliases: [sh, handcuffs]
+
+permissions:
+  handcuffs.create:
+    description: Create handcuffs
+    default: op
+  handcuffs.removeall:
+    description: Release everyone and delete all handcuffs
+    default: op
+  handcuffs.immune:
+    description: Can't be cuffed
+    default: false

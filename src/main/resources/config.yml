@@ -1,0 +1,40 @@
+follow:
+  pull-distance: 3
+  teleport-distance: 12
+
+max-prisoners-per-officer: 1
+arrest-cooldown-seconds: 5
+
+# Commands a cuffed player can still use. Everything else is blocked.
+allowed-commands: [msg, tell, w, r]
+
+chain:
+  enabled: true
+  style: particles   # particles or links
+
+item:
+  name: "&6Handcuffs"
+  lore:
+    - "&7Right-click a player to arrest them."
+
+# %officer% / %prisoner% = player names
+messages:
+  prefix: "&8[&6Cuffs&8] "
+  arrested: "&cYou have been arrested by %officer%."
+  arrest-made: "&eYou arrested %prisoner%."
+  released: "&aYou have been released by %officer%."
+  release-made: "&eYou released %prisoner%."
+  still-arrested: "&cYou are still under arrest by %officer%."
+  already-cuffed: "&c%prisoner% is already cuffed by %officer%."
+  immune: "&c%prisoner% can't be cuffed."
+  max-prisoners: "&cYou can't hold any more prisoners."
+  cooldown: "&cWait a moment before arresting again."
+  locked: "&cYou can't do that while cuffed."
+  command-blocked: "&cYou can't use that command while cuffed."
+  cuffs-gone: "&7Those handcuffs don't work anymore."
+  given: "&aGave %amount% handcuffs to %player%."
+  received: "&aYou received handcuffs."
+  removed-all: "&aRemoved all handcuffs and released %count% players."
+  no-permission: "&cYou don't have permission."
+  player-not-found: "&cPlayer not found."
+  usage: "&e/cuffs give [player] [amount] &7| &e/cuffs removeall"
